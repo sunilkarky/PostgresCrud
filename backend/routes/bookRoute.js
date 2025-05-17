@@ -7,8 +7,13 @@ const {
 } = require("../controllers/bookController");
 
 const router = require("express").Router();
-
-router.route("/").get(getBooks).post(addBook);
-router.route("/:id").get(getSingleBook).patch(updateBook).delete(deleteBook);
+const { multer, storage } = require("../middleware/multerConfig");
+const upload = multer({ storage: storage });
+router.route("/").get(getBooks).post(upload.single("bookImage"), addBook);
+router
+  .route("/:id")
+  .get(getSingleBook)
+  .patch(upload.single("bookImage"), updateBook)
+  .delete(deleteBook);
 
 module.exports = router;

@@ -16,6 +16,9 @@ const bookModel = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    bookImage: {
+      type: DataTypes.STRING,
+    },
   });
   return book;
 };

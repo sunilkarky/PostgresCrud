@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 const Card = () => {
@@ -11,14 +11,13 @@ const Card = () => {
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
                 <p className="text-gray-700 text-base">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
-                  perferendis eaque, exercitationem praesentium nihil.
+                
         </p>
       </div>
-      <div className="px-6 py-4">
+      <div className="px-3 gap-2 flex flex-col">
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+        <span className="inline-block bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 mr-4 mb-4 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit excepturi, quo ab delectus eveniet vitae quae laudantium officia, expedita eum qui non totam nam ipsum nesciunt neque explicabo perspiciatis at.</span>
       </div>
     </div>
   </div>
