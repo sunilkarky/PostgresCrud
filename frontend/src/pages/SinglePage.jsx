@@ -7,13 +7,13 @@ const SinglePage = () => {
     <>
       <Navbar />
 
-    <div className=' flex  mr-4 justify-center min-h-screen'>
+    <div className=' flex  mr-4 justify-center min-h-screen bg-gradient-to-r from-indigo-700 to-violet-500'>
 
-    <div className="bg-white dark:bg-gray-900 border tweet-border max-w-xl w-full rounded-lg sm:rounded-lg overflow-hidden shadow-sm">
+    <div className="bg-gradient-to-r from-indigo-700 to-violet-500 dark:bg-gray-900 border tweet-border max-w-xl w-full h-full rounded-lg sm:rounded-lg overflow-hidden shadow-sm">
   <article className="p-4 flex space-x-3">
     {/* Avatar Column */}
     <div className="flex-shrink-0">
-      <img className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" src="./book.svg" alt="User Avatar" />
+      <img className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" src="/book.svg" alt="User Avatar" />
     </div>
     {/* Content Column */}
     <div className="flex-1 min-w-0">

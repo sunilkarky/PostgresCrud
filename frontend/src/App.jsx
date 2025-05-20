@@ -5,14 +5,16 @@ import CreatePage from './pages/CreatePage'
 import UpdatePage from './pages/UpdatePage'
 import SinglePage from './pages/SinglePage'
 
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+         
           <Route path="/create-page" element={<CreatePage />} />
-          <Route path="/single-page" element={<SinglePage />} />
+          <Route path="/single-page/:id" element={<SinglePage />} />
           <Route path="/update-page" element={<UpdatePage />} />
         </Routes>
       </BrowserRouter>

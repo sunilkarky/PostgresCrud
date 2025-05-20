@@ -4,46 +4,32 @@ import Button from './Button'
 
 const Navbar = () => {
   return (
-   <div>
-  <header className="bg-white">
-    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div className="flex h-16 items-center justify-between">
-        <div className="flex-1 md:flex md:items-center md:gap-12">
-          
-            <span className="sr-only"></span>
-            <div className="flex-shrink-0">
-              <Link to="/">
-      <img className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" src="./book.svg" alt="User Avatar" /></Link>
-    </div>
-         
-               
-          
 
-        
-        </div>
-        <div className="md:flex md:items-center md:gap-12">
-         
-          <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
-              <Link to="/create">
-                <Button text="Create" />
-              </Link>
-              
-            </div>
-            <div className="block md:hidden">
-              <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<nav className="h-[70px] relative w-full px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-30 bg-gradient-to-r from-indigo-700 to-violet-500 transition-all">
+      <Link to="/">
+      <img className="w-10 sm:w-16 sm:h-16 rounded-full object-cover bg-amber-400 mx-1" src="/book.svg" alt="User Avatar" />
+      </Link>
+ <div className="  flex h-screen w-full items-center justify-center">
+  <span className=" absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-indigo-500 via-amber-500 to-pink-500 bg-clip-text  box-content  text-transparent text-center select-none">
+    Book Store
+  </span>
+  <h1 className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center from-indigo-500 via-amber-500 to-pink-500 bg-clip-text text-3xl font-bold text-transparent text-center select-auto">
+    Book Store
+  </h1>
 </div>
+               <Link to="/create">
+                   <button type="button" className="w-30 py-3 cursor-pointer active:scale-95 transition text-sm text-white bg-amber-400 rounded-full  flex items-center justify-center gap-1">
+                       <img className="w-5 h-5" src="/add.svg" alt="plus icon" />
+                       <p className="mb-0.5">Add new</p>
+                   </button>
+               </Link>
+              
+  
 
+</nav>
+
+
+  
   )
 }
 
