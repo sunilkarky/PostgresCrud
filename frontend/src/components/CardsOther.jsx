@@ -36,27 +36,25 @@ import { Link } from 'react-router-dom'
 const CardsOther = (props) => {
 // 
 console.log(props)
-const { image, books } = props
+const { image, book } = props
+
   return (
     
 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 overflow-hidden">
     {/* Image Section - Taller Aspect Ratio */}
-   <Link to={`/single-page/${books.id}`}>
+   <Link to={`/single-page/${book.id}`}>
     <div className="relative aspect-[3/4]"> {/* Changed to 3:4 aspect ratio */}
         <img 
-            className="w-full h-full object-cover rounded-t-lg hover:opacity-90 transition-opacity duration-200"
-            src={image} 
+            className="w-[50vw] h-[50vh] object-cover rounded-t-lg hover:opacity-90 transition-opacity duration-200"
+            src={book.bookImage} 
             alt="Take the Risk book cover"
             loading="lazy"
             />
-    </div>
-
-    {/* Book Details */}
     <div className="p-6 space-y-4">
         {/* Title Section */}
         <div className="space-y-2">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
-                TAKE THE <br />
+                <br />
                 <span className="text-blue-600 dark:text-blue-400">RISK</span>
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 italic">
@@ -78,6 +76,9 @@ const { image, books } = props
             with Gregg Lewis
         </p>
     </div>
+    </div>
+
+    {/* Book Details */}
   </Link>
 </div>
   )}
