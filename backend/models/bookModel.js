@@ -13,7 +13,7 @@ const bookModel = (sequelize, DataTypes) => {
       allowNull: false,
     },
     bookGenre: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     bookImage: {
