@@ -1,84 +1,101 @@
-import { useState } from "react"
-import Navbar from "../components/Navbar"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import React, { useState } from 'react'
+import Navbar from '../components/Navbar'
 
+const CreatePage = () => {
 
+  const [bookData,setBookData]=useState({
+    bookName:"",
+    bookAuthor:"",
+    bookPrice:"",
+    bookGenre:"",
+  })
+  console.log(bookData)
 
-function CreatePage(){
-  const navigate = useNavigate()
-    // first approach 
-    // const [bookName,setBookname] = useState("")
-    // const [bookGenre,setBookgenre] = useState("")
-    // const [bookAuthor,setBookauthor] = useState("")
-    // const [bookPrice,setBookprice] = useState("")
+  const handleChange =(event)=>{
+    // let name=event.target.name
+    // let value=event.target.value
 
-    // console.log(bookName,bookGenre,bookAuthor,bookPrice)
-
-    // second approach
-    const [bookData,setBookData] = useState({
-        bookName : "", 
-        bookGenre : "", 
-        bookAuthor : "", 
-        bookPrice : ""
+    let {name,value}=event.target
+    setBookData({
+      ...bookData,
+      [name]:value
     })
-    const handleChange = (event)=>{
-        // let value = event.target.value // k type haneko 
-        // let name = event.taget.name  // kun ma type haneko 
-        let {name,value} =event.target
-        // bookName c programming
-        // bookAuthor hello
-        setBookData({
-            ...bookData, // agadi j xa jasto xa testai hoss 
-            [name] : value  // value --> nepali, name --> bookName
-        })
-    }
 
-    const submitData = async (event)=>{
-      event.preventDefault()
-      // mathi state ma vako data lai api lai dine -- localhost:4000/api/books - post method 
-      // post garda dueta pathaunai paryo , pathaune data ko format always object hunu parxa, jun at the end axios le json ma convert garera pathaedinxa 
-      const response = await axios.post("http://localhost:4000/api/books",bookData)
-      if(response.status === 200){
-        alert("Book added successfully")
-        navigate("/")
-      }else{
-        alert("Something went wrong")
-      }
-
-      }
-
-    return (
-        <>
-       <Navbar />
-   <div className="mx-14 mt-10 border-2 border-blue-400 rounded-lg">
-  <div className="mt-10 text-center font-bold">Contact Us</div>
-  <div className="mt-3 text-center text-4xl font-bold">Make an Appointment</div>
-  <div className="p-8">
-    <div className="flex gap-4">
-      <input type="Name" name="name" className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm" placeholder="Full Name *" />
-      <input type="email" name="email" className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm" placeholder="Email *" />
+  }
+  return (
+    <div>
+      <Navbar />
+      <div className="bg-white border border-4 rounded-lg shadow relative m-10">
+        <div className="flex items-start justify-between p-5 border-b rounded-t">
+          <h3 className="text-xl font-semibold">
+            Add Book
+          </h3>
+        </div>
+        <div className="p-6 space-y-6">
+          <form>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="bookName" className="text-sm font-medium text-gray-900 block mb-2">Book Name</label>
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  name="bookName"
+                  id="bookName"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                  placeholder="Book Name"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="bookAuthor" className="text-sm font-medium text-gray-900 block mb-2">Author</label>
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  name="bookAuthor"
+                  id="bookAuthor"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                  placeholder="Author"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="bookPrice" className="text-sm font-medium text-gray-900 block mb-2">Price</label>
+                <input
+                  onChange={handleChange}
+                  type="number"
+                  name="bookPrice"
+                  id="bookPrice"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                  placeholder="Price"
+                  required
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label htmlFor="bookGenre" className="text-sm font-medium text-gray-900 block mb-2">Description</label>
+                <textarea
+                  onChange={handleChange}
+                  name="bookGenre"
+                  id="bookGenre"
+                  rows={6}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"
+                  placeholder="Description"
+                />
+              </div>
+            </div>
+            <div className="p-6 border-t border-gray-200 rounded-b">
+              <button
+                className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4"
+                type="submit"
+              >
+                Save all
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div className="my-6 flex gap-4">
-      <select name="select" id="select" className="block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 font-semibold text-gray-500 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm">
-        <option className="font-semibold text-slate-300">Please Select</option>
-      </select>
-      <select name="select" id="select" className="block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 font-semibold text-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm">
-        <option className="font-semibold text-slate-300">4:00 Available</option>
-      </select>
-    </div>
-    <div className>
-      <textarea name="textarea" id="text" cols={30} rows={10} className="mb-10 h-40 w-full resize-none rounded-md border border-slate-300 p-5 font-semibold text-gray-300" defaultValue={"Message"} />
-    </div>
-    <div className="text-center">
-      <a className="cursor-pointer rounded-lg bg-blue-700 px-8 py-5 text-sm font-semibold text-white">Book Appoinment</a>
-    </div>
-  </div>
-</div>
-
-
-        </>
-
-    )
+  )
 }
-  export default CreatePage
+
+export default CreatePage

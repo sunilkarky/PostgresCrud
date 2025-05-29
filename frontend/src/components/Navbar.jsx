@@ -1,6 +1,6 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
-import Button from './Button'
+
 
 const Navbar = () => {
   return (
@@ -9,7 +9,7 @@ const Navbar = () => {
       <Link to="/">
       <img className="w-10 sm:w-16 sm:h-16 rounded-full object-cover bg-amber-400 mx-1" src="/book.svg" alt="User Avatar" />
       </Link>
- <div className="  flex h-screen w-full items-center justify-center">
+ <div className="  flex  items-center justify-center ">
   <span className=" absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-indigo-500 via-amber-500 to-pink-500 bg-clip-text  box-content  text-transparent text-center select-none">
     Book Store
   </span>
@@ -17,7 +17,7 @@ const Navbar = () => {
     Book Store
   </h1>
 </div>
-               <Link to="/create">
+               <Link to="/create-page">
                    <button type="button" className="w-30 py-3 cursor-pointer active:scale-95 transition text-sm text-white bg-amber-400 rounded-full  flex items-center justify-center gap-1">
                        <img className="w-5 h-5" src="/add.svg" alt="plus icon" />
                        <p className="mb-0.5">Add new</p>
