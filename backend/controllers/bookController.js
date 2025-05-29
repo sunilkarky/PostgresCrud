@@ -39,6 +39,7 @@ exports.addBook = async (req, res) => {
     console.log(bookName);
     console.log(bookPrice);
     const file = req.file;
+    console.log(file);
     if (!bookName || !bookPrice || !bookAuthor || !bookGenre) {
       return res.status(400).json({
         message: "bookName ,bookPrice ,bookAuthor ,bookGenre are required",
@@ -67,12 +68,12 @@ exports.addBook = async (req, res) => {
 exports.updateBook = async (req, res) => {
   const { id } = req.params;
   const { bookName, bookPrice, bookAuthor, bookGenre } = req.body;
-  // if (!bookName || !bookPrice || !bookAuthor || !bookGenre) {
-  //   return res.status(400).json({
-  //     message:
-  //       "Please fill all the fields: bookName, bookPrice, bookAuthor, bookGenre",
-  //   });
-  // }
+  if (!bookName || !bookPrice || !bookAuthor || !bookGenre) {
+    return res.status(400).json({
+      message:
+        "Please fill all the fields: bookName, bookPrice, bookAuthor, bookGenre",
+    });
+  }
   const oldBook = await books.findByPk(id);
   if (!oldBook) {
     return res.status(404).json({

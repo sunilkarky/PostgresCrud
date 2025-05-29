@@ -4,6 +4,7 @@ const {
   getSingleBook,
   updateBook,
   deleteBook,
+  searchBook,
 } = require("../controllers/bookController");
 
 const router = require("express").Router();
@@ -15,5 +16,6 @@ router
   .get(getSingleBook)
   .patch(upload.single("bookImage"), updateBook)
   .delete(deleteBook);
+router.get("/search", searchBook);
 
 module.exports = router;
