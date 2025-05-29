@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const SinglePage = () => {
@@ -36,7 +36,7 @@ const deleteBook=async ()=>{
 <div className=''>
     <div className=' flex  mr-4 justify-center min-h-screen w-full sm:w-[90vh] '>
 
-    <div className="   max-w-fit w-full h-full rounded-lg sm:rounded-lg overflow-hidden shadow-sm my-5 bg-gradient-to-r from-indigo-700 to-violet-500">
+    <div className="   max-w-fit w-full h-full rounded-lg sm:rounded-lg overflow-hidden shadow-sm my-2 bg-gradient-to-r from-indigo-700 to-violet-500">
   <article className="p-4 flex space-x-3">
     {/* Avatar Column */}
     
@@ -45,7 +45,7 @@ const deleteBook=async ()=>{
     <div className="flex-1 min-w-0">
       {/* Header image */}
       <div className=" rounded-xl mb-2  overflow-hidden">
-        <img src={book.bookImage} alt="image" className="w-full object-cover aspect-video" />
+        <img loading="lazy" src={book.bookImage} alt="image" className="w-full object-cover aspect-video" />
       </div>
       <div className="flex justify-between items-center mb-1">
         <div className="flex items-baseline space-x-1  min-w-0">
@@ -74,9 +74,11 @@ const deleteBook=async ()=>{
       {/* Media (Optional) */}
       
       <div className='flex flex-row gap-2 mt-4 justify-end  '>
+        <Link to={`/update-page/${id}`}>
         <button className="rounded-md bg-teal-600 px-10 py-2.5 text-sm font-medium text-white shadow" >
                 Update
               </button>
+        </Link>
         <button onClick={deleteBook} className="rounded-md bg-teal-600 px-10 py-2.5 text-sm font-medium text-white shadow" >
                 Delete
               </button>

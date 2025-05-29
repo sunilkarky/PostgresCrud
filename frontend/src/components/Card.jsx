@@ -14,6 +14,7 @@ const Card = ({book}) => {
                           <Link to={`/single-page/${book.id}`}>
 
             <img
+            loading="lazy"
               className="w-[50vh] h-[40vh] object-cover mx-auto mt-4 rounded"
               src={book.bookImage}
               alt="Book Cover"

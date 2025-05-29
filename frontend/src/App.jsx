@@ -15,7 +15,7 @@ function App() {
          
           <Route path="/create-page" element={<CreatePage />} />
           <Route path="/single-page/:id" element={<SinglePage />} />
-          <Route path="/update-page" element={<UpdatePage />} />
+          <Route path="/update-page/:id" element={<UpdatePage />} />
         </Routes>
       </BrowserRouter>
     </>
