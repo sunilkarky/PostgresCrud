@@ -4,7 +4,7 @@ const Navbar = ({ searchTerm, setSearchTerm, handleSearch ,onSearchInputChange})
   return (
     <nav className="h-[70px] relative w-full px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-30 bg-gradient-to-r from-indigo-700 to-violet-500 transition-all">
       <Link to="/">
-        <img loading="lazy" className="w-10 sm:w-16 sm:h-16 rounded-full object-cover bg-amber-400 mx-1" src="/book.svg" alt="User Avatar" />
+        <img loading="lazy" className="w-10 sm:w-16 sm:h-16 rounded-full object-cover bg-amber-400 mx-1" src="/vite.svg" alt="User Avatar" />
       </Link>
       <div className="">
         <span className="items-center absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-indigo-500 via-amber-500 to-pink-500 bg-clip-text box-content text-transparent text-center select-none">
