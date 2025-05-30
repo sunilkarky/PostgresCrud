@@ -57,7 +57,7 @@ exports.addBook = async (req, res) => {
       bookAuthor,
       bookGenre,
 
-      bookImage: `${BASE_URL}/${file.filename}`,
+      bookImage: `${BASE_URL}/uploads/${file.filename}`,
       // "http://localhost:3000/" + file.filename,
     });
     res.json({

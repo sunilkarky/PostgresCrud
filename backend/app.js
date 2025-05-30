@@ -5,7 +5,8 @@ require("./database/connection");
 const cors = require("cors");
 app.use(express.json());
 //give file access to view the file eg: uploads folder ko access dine to access images
-app.use(express.static("uploads"));
+// app.use(express.static("uploads"));
+app.use("/uploads", express.static("uploads"));
 
 app.use(
   cors({
