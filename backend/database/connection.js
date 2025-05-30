@@ -1,6 +1,14 @@
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize(process.env.POSTGRES_URL);
+const sequelize = new Sequelize(process.env.POSTGRES_URL, {
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 
 sequelize
   .authenticate()
