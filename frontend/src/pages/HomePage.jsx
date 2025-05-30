@@ -13,7 +13,7 @@ const HomePage = () => {
   const availableBooksRef = useRef(null)
 
   const fetchBooks = async () => {
-    const response = await axios.get("http://localhost:3000/api/books")
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/books`)
     setBooks(response.data.books)
      setAllBooks(response.data.books)
   }

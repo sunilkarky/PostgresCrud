@@ -1,5 +1,6 @@
 const { books } = require("../database/connection");
 const fs = require("fs");
+const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 exports.getBooks = async (req, res) => {
   const bookData = await books.findAll();
   if (bookData.length === 0) {
@@ -55,7 +56,9 @@ exports.addBook = async (req, res) => {
       bookPrice,
       bookAuthor,
       bookGenre,
-      bookImage: "http://localhost:3000/" + file.filename,
+
+      bookImage: `${BASE_URL}/${file.filename}`,
+      // "http://localhost:3000/" + file.filename,
     });
     res.json({
       message: "Book added successfully",
@@ -101,7 +104,7 @@ exports.updateBook = async (req, res) => {
       bookGenre: bookGenre,
       bookImage:
         req.file && req.file.filename
-          ? "http://localhost:3000/" + req.file.filename
+          ? `${BASE_URL}/${req.file.filename}`
           : oldFilePath,
     },
     {
@@ -125,7 +128,7 @@ exports.deleteBook = async (req, res) => {
   }
   // Remove image file
   const oldFilePath = book.bookImage;
-  const lengthToCut = "http://localhost:3000/".length;
+  const lengthToCut = `${BASE_URL}/`.length;
   const actualFileName = oldFilePath.slice(lengthToCut);
   fs.unlink("./uploads/" + actualFileName, (err) => {
     if (err) {

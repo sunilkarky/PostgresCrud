@@ -57,7 +57,7 @@ const CreatePage = () => {
     formData.append("bookImage", bookData.bookImage)
 
     try {
-      const response = await axios.post('http://localhost:3000/api/books', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/books`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

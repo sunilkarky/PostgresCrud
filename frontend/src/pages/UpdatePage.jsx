@@ -14,7 +14,7 @@ const UpdatePage = () => {
   const [bookImage, setBookImage] = useState("")
 
   const previousData = async () => {
-    const response = await axios.get(`http://localhost:3000/api/books/${id}`)
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/books/${id}`)
     const data = response.data.book
     setBookName(data.bookName)
     setBookGenre(data.bookGenre)
@@ -42,7 +42,7 @@ const UpdatePage = () => {
     formData.append("bookGenre", bookGenre)
     formData.append("bookImage", bookImage)
     try {
-      const response = await axios.patch(`http://localhost:3000/api/books/${id}`, formData, {
+      const response = await axios.patch(`${import.meta.env.VITE_API_URL}/api/books/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
