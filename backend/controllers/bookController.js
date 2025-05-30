@@ -84,10 +84,17 @@ exports.updateBook = async (req, res) => {
     });
   }
   const oldFilePath = oldBook.bookImage;
-  const lengthToCut = "http://localhost:3000/".length;
-  const actualFileName = oldFilePath.slice(lengthToCut);
+  // Extract filename from old image URL (works for both localhost and production)
+  let actualFileName = null;
+  if (oldFilePath) {
+    // Handles both /uploads/filename and full URL
+    const parts = oldFilePath.split("/uploads/");
+    if (parts.length === 2) {
+      actualFileName = parts[1];
+    }
+  }
   // If new image file is uploaded, delete previous file
-  if (req.file && req.file.filename) {
+  if (req.file && req.file.filename && actualFileName) {
     fs.unlink("./uploads/" + actualFileName, (err) => {
       if (err) {
         console.log("Error deleting file", err);
@@ -98,13 +105,13 @@ exports.updateBook = async (req, res) => {
   }
   const [_, updatedRows] = await books.update(
     {
-      bookName: bookName,
-      bookPrice: bookPrice,
-      bookAuthor: bookAuthor,
-      bookGenre: bookGenre,
+      bookName,
+      bookPrice,
+      bookAuthor,
+      bookGenre,
       bookImage:
         req.file && req.file.filename
-          ? `${BASE_URL}/${req.file.filename}`
+          ? `${BASE_URL}/uploads/${req.file.filename}`
           : oldFilePath,
     },
     {
