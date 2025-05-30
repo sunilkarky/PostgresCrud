@@ -37,10 +37,10 @@ exports.getSingleBook = async (req, res) => {
 exports.addBook = async (req, res) => {
   try {
     const { bookName, bookPrice, bookAuthor, bookGenre } = req.body;
-    console.log(bookName);
-    console.log(bookPrice);
+    // console.log(bookName);
+    // console.log(bookPrice);
     const file = req.file;
-    console.log(file);
+    // console.log(file);
     if (!bookName || !bookPrice || !bookAuthor || !bookGenre) {
       return res.status(400).json({
         message: "bookName ,bookPrice ,bookAuthor ,bookGenre are required",

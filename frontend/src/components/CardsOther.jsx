@@ -35,7 +35,7 @@ import { Link } from 'react-router-dom'
 
 const CardsOther = (props) => {
 // 
-console.log(props)
+// console.log(props)
 const { image, book } = props
 
   return (

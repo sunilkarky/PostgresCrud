@@ -45,7 +45,7 @@ const CreatePage = () => {
   //   ret
   //    const response=await axios.post('http://localhost:3000/api/books',bookData)
   //   }
-  console.log(bookData)
+  // console.log(bookData)
 
   const addBook = async (e) => {
     e.preventDefault()
