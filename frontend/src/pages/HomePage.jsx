@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import Card from '../components/Card'
+import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 // ...other imports...
 
 const HomePage = () => {
@@ -60,12 +62,22 @@ const HomePage = () => {
         <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
           <h1 className="text-5xl font-bold leading-tight mb-4">Welcome to Our Book Store</h1>
           <p className="text-lg text-gray-300 mb-8">Discover amazing Books and Articles that await you.</p>
+          <div className='flex flex-row gap-2'>
+
+
           <button
             onClick={handleGetStarted}
             className="bg-amber-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-          >
+            >
             Get Started
           </button>
+          
+        <Link to="/create-page">
+          <button type="button" className="bg-amber-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 cursor-pointer rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">      <p className=" md:mb-0.5">Add Book</p>
+          </button>
+        </Link>
+            </div>
+     
         </div>
       </div>
 
@@ -82,6 +94,18 @@ const HomePage = () => {
           <Card key={book.id} book={book} />
         ))}
       </div>
+            <Footer
+  searchTerm={searchTerm}
+  setSearchTerm={setSearchTerm}
+  handleSearch={handleSearch}
+  onSearchInputChange={e => {
+    setSearchTerm(e.target.value);
+    if (e.target.value === "") {
+      setBooks(allBooks);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }}
+/>
     </div>
   )
 }

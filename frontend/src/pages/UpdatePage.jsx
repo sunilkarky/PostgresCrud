@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Footer from '../components/Footer'
 
 const UpdatePage = () => {
   const { id } = useParams()
@@ -132,6 +133,8 @@ const UpdatePage = () => {
           </form>
         </div>
       </div>
+            <Footer
+/>
     </>
   )
 }

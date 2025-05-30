@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import Footer from '../components/Footer'
 
 const SinglePage = () => {
 const navigate=useNavigate()
@@ -36,7 +37,7 @@ const deleteBook=async ()=>{
 <div className=''>
     <div className=' flex  mr-4 justify-center min-h-screen w-full sm:w-[90vh] '>
 
-    <div className="   max-w-fit w-full h-full rounded-lg sm:rounded-lg overflow-hidden shadow-sm my-2 bg-gradient-to-r from-indigo-700 to-violet-500">
+    <div className="   max-w-fit w-full h-full rounded-lg sm:rounded-lg overflow-hidden shadow-sm   my-2">
   <article className="p-4 flex space-x-3">
     {/* Avatar Column */}
     
@@ -45,16 +46,16 @@ const deleteBook=async ()=>{
     <div className="flex-1 min-w-0">
       {/* Header image */}
       <div className=" rounded-xl mb-2  overflow-hidden">
-        <img loading="lazy" src={book.bookImage} alt="image" className="w-full object-cover aspect-video" />
+        <img loading="lazy" src={book.bookImage} alt="image" className="w-auto max-w-full max-h-[60vh] mx-auto rounded-xl border object-contain" />
       </div>
       <div className="flex justify-between items-center mb-1">
         <div className="flex items-baseline space-x-1  min-w-0">
-          <h2 className="font-bold text-2xl text-gray-900 dark:text-gray-100 truncate hover:underline cursor-pointer">
+          <h2 className="font-bold text-2xl text-gray-900  truncate hover:underline cursor-pointer">
             {book.bookName}
           </h2>
           
-          <span className="text-gray-500 dark:text-gray-400">·</span>
-          <span className="text-gray-500 dark:text-gray-400 hover:underline cursor-pointer whitespace-nowrap">
+          <span className="text-black-900 dark:text-gray-400">·</span>
+          <span className="text-gray-900 dark:text-gray-400 hover:underline cursor-pointer whitespace-nowrap">
           {timeStamp}
           </span>
         </div>
@@ -68,7 +69,7 @@ const deleteBook=async ()=>{
      
     </div>
       {/* Tweet Content */}
-       <p className="text-gray-800 dark:text-gray-100 text-sm sm:text-base leading-normal mb-2">
+       <p className="text-gray-800 text-sm sm:text-base leading-normal mb-2">
         {book.bookGenre}</p>
 
       {/* Media (Optional) */}
@@ -113,6 +114,7 @@ const deleteBook=async ()=>{
 
     </div>
         </div>
+    <Footer />
     </>
   )
 }

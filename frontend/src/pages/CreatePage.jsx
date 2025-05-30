@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 
 const CreatePage = () => {
@@ -145,6 +146,7 @@ const CreatePage = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
