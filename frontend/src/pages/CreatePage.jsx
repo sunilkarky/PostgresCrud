@@ -69,6 +69,7 @@ const CreatePage = () => {
       alert("Error: " + (err.response?.data?.message || err.message))
     }
   }
+
   return (
     <div>
       <Navbar />
@@ -119,8 +120,16 @@ const CreatePage = () => {
                 />
               </div>
        <div className="text-sm font-medium text-gray-900 block mb-2">
-  <label htmlFor="bookImage" className="mb-1 block text-sm font-medium text-gray-700">Upload file</label>
-  <input onChange={handleChange} name="bookImage" id="bookImage" type="file" className="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-cyan-600 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-amber-400 focus:outline-none disabled:pointer-events-none disabled:opacity-60" />
+  <label htmlFor="bookImage" className="mb-1 block text-sm font-medium text-gray-700">Upload file  <span class="relative">
+  (Jpg Jpeg or png only)
+  <span
+    class="absolute bottom-0 right-0 left-0 opacity-40
+     -skew-x-6 -skew-y-1 transform h-3/5 bg-teal-500"
+  >
+  </span>
+</span>
+</label>
+  <input onChange={handleChange} accept="image/png, image/jpeg, image/jpg" name="bookImage" id="bookImage" type="file" className="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-cyan-600 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-amber-400 focus:outline-none disabled:pointer-events-none disabled:opacity-60" />
 </div>
 
               <div className="md:col-span-2">
